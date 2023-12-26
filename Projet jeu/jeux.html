@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="jeux.css" />
+    <title>Jeu Aleatoire</title>
+  </head>
+  <body>
+    <div class="gradient">
+      <div class="mon">
+        <h1>Jouez à ce jeu et tentez de gagner des bonbons 🍬</h1>
+      </div>
+
+      <div class="jeu">
+        <form id="monFormulaire" onsubmit="trouverNombre() ; return false;">
+          <fieldset>
+            <h1>Welcome</h1>
+            <p class="texte">Ce jeu consiste à trouver un nombre mystère</p>
+            <input type="text" id="trouver" />
+            <button type="submit">Jouer</button>
+            <p id="message"></p>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <script>
+      const nombreSecret = Math.floor(Math.random() * 100);
+      function LeMessage(text) {
+        document.getElementById("message").textContent = text;
+      }
+      function trouverNombre() {
+        const nombre = document.getElementById("trouver").value;
+
+        if (isNaN(nombre) || nombre < 0 || nombre > 100) {
+          LeMessage("Entrer un nombre compris entre 0 et 100");
+          return;
+        }
+
+        if (nombre == nombreSecret) {
+          LeMessage(
+            `Félicitations tu as gagné un Bonbon! ${nombreSecret} c'est le bon numéro.`
+          );
+        } else if (nombre < nombreSecret) {
+          LeMessage("Trop petit! Réessayer.");
+        } else {
+          LeMessage("Trop élevé. Réessayer");
+        }
+        document.getElementById("trouver").value = "";
+      }
+      //
+      if (nombre == nombreSecret) {
+        LeMessage(
+          `Félicitations tu as gagné un Bonbon! ${nombreSecret} c'est le bon numéro.`
+        );
+        document.getElementById("victorySound").play();
+        document.querySelector(".jeu").classList.remove("pulse");
+      }
+    </script>
+  </body>
+</html>

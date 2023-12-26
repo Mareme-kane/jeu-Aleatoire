@@ -1,0 +1,89 @@
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.gradient {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(334deg, #6b97f7, #7525e2, #f7137e);
+  background-size: 180% 180%;
+  animation: gradient-animation 6s ease infinite;
+}
+
+.jeu {
+  max-width: 500px;
+  width: 80%;
+  padding: 20px;
+  box-sizing: border-box;
+  border: 2px solid black;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: white;
+  text-align: center;
+}
+
+h1 {
+  color: #333;
+}
+
+#monFormulaire {
+  margin-top: 20px;
+}
+
+.texte {
+  font-size: 18px;
+  color: #555;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#message {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #f7137e;
+}
+
+.mon {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
